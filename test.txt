@@ -1,0 +1,35 @@
+Algo that removes duplicates from an array, don't use filter, solve with and without recursion.
+Solve with recursion.
+
+Start by taking in an array.
+
+Return an array without duplicates.
+
+Base case will be an a counter that will be the length of the array.
+[1, 1, 2, 2, 3]
+
+recursive way of solving it
+function noDuplicate(array, counter, newArray){
+  if(counter === array.length){
+    return newArray;
+  }
+  else{
+    if(!newArray.includes(array[counter])){
+      return noDuplicate(array, newArray.push(array[counter], counter + 1))
+    }
+    else{
+      return noDuplicate(array, newArray, counter + 1)
+    }
+  }
+}
+
+non recursive solution
+function noDuplicateNoRecursion(array){
+  let newArray = [];
+  for(let i = 0; i < array.length; i++){
+    if(!newArray.includes(array[i]){
+      newArray.push(array[i])
+    }
+  }
+  return newArray;
+}
